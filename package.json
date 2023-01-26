@@ -1,0 +1,19 @@
+{
+  "name": "fullstack-javascript-project-44",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/anetnovo/fullstack-javascript-project-44/workflows/hexlet-check/badge.svg)](https://github.com/anetnovo/fullstack-javascript-project-44/actions) https://asciinema.org/a/lSRIkt2RlamdQJfVHicbTyhA5",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anetnovo/fullstack-javascript-project-44.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anetnovo/fullstack-javascript-project-44/issues"
+  },
+  "homepage": "https://github.com/anetnovo/fullstack-javascript-project-44#readme"
+}
