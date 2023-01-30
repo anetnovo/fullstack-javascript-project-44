@@ -1,31 +1,24 @@
 import readlineSync from 'readline-sync';
-console.log('Welcome to the Brain Games!');
-const name = readlineSync.question('May I have your name? ');                                                                                                                                                                              
-  console.log(`Hello, ${name}`);
-console.log('Answer "yes" if the number is even, otherwise answer "no".');                                                                                                                                                                   
-const isEven = (num) => num % 2 === 0;                                                                                                                                                                                                       
+import { getName, randomNum, printTask, printQuestion, congrats, wrongAnswer } from '../src/index.js';
+
+const name = getName();
+printTask('Answer "yes" if the number is even, otherwise answer "no".');
+const isEven = (num) => num % 2 === 0;
 const res = {
-   false: 'no',
-   true: 'yes',
-  };
-   //const generateArray = () => (                   
-  //  [...new Array(3)]                              
- //    .map(() => Math.round(Math.random() * 20))     
-//)
- const arr = [];
- for (let i = 0; i < 3; i += 1) {                     
-  arr.push(Math.round(Math.random() * 100));          
-}
-let attempt = 0;                                         
- for (const num of arr) {                             
-  console.log(`Question: ${num}`);                    
-const answer = readlineSync.question('Your answer:');                                                    
-if ((answer === 'yes' && isEven(num)) || (answer === 'no' && !isEven(num))) {                                                                                                                                                                  
-console.log('Correct!');
-attempt += 1;
-}
-if (attempt === 3) console.log(`Congratulations, ${name}!`);                                                                                                                                                                                 
-else if ((answer !== 'yes' && isEven(num)) || (answer !== 'no' && !isEven(num))) {                                                                                                                                                             
-console.log(`${answer} is wrong answer ;(. Correct answer was ${res[isEven(num)]}.Let's try again, ${name}!`);                                                                                                                               
-break;                                                                                                                                                                                                                                     }                                                                                                                                                                                                                                          
+  false: 'no',
+  true: 'yes',
+};
+
+for (let attempt = 1; attempt <= 3; attempt += 1) {
+  const num = randomNum();
+  printQuestion(num);
+  const answer = readlineSync.question('Your answer:');
+  if ((answer === 'yes' && isEven(num)) || (answer === 'no' && !isEven(num))) {
+    console.log('Correct!');
+  }
+  if (attempt === 3) congrats(name);
+  else if ((answer !== 'yes' && isEven(num)) || (answer !== 'no' && !isEven(num))) {
+    wrongAnswer(answer, res[isEven(num)], name);
+    break;
+  }
 }
