@@ -3,6 +3,19 @@ import {
   getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
 
+const calculate = (num1, num2, sign) => {
+  switch (sign) {
+    case '*':
+      return num1 * num2;
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    default:
+      console.log('error');
+  }
+  return sign;
+};
 export default function game() {
   const name = getName();
   printTask('What is the result of the expression?');
@@ -18,7 +31,7 @@ export default function game() {
     const randNum = randomNum();
     const randNum2 = randomNum();
     printQuestion(`${randNum} ${randOper} ${randNum2}`);
-    const result = eval(`${randNum} ${randOper} ${randNum2}`);
+    const result = calculate(randNum, randNum2, randOper);
     const answer = readlineSync.question('Your answer: ');
     const checkAnswer = Number(answer) === result;
     if (checkAnswer) console.log('Correct!');
