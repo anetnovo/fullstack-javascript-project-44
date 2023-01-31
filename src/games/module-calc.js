@@ -17,8 +17,8 @@ export default function game() {
     const randOper = arrayRandElement(operations);
     const randNum = randomNum();
     const randNum2 = randomNum();
-    printQuestion(`${randNum}  ${randOper}  ${randNum + randNum2}`);
-    const result = eval(`${randNum}  ${randOper}  ${randNum + randNum2}`);
+    printQuestion(`${randNum} ${randOper} ${randNum2}`);
+    const result = eval(`${randNum} ${randOper} ${randNum2}`);
     const answer = readlineSync.question('Your answer: ');
     const checkAnswer = Number(answer) === result;
     if (checkAnswer) console.log('Correct!');
