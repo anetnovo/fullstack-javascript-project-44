@@ -16,11 +16,12 @@ export default function game() {
     const num = randomNum();
     printQuestion(num);
     const answer = readlineSync.question('Your answer:');
-    if ((answer === 'yes' && isEven(num)) || (answer === 'no' && !isEven(num))) {
+    let checkAnswer = (answer === 'yes' && isEven(num)) || (answer === 'no' && !isEven(num));
+    if (checkAnswer) {
       console.log('Correct!');
     }
-    if (attempt === 3) congrats(name);
-    else if ((answer !== 'yes' && isEven(num)) || (answer !== 'no' && !isEven(num))) {
+    if (attempt === 3 && checkAnswer) congrats(name);
+    else if (!checkAnswer) {
       wrongAnswer(answer, res[isEven(num)], name);
       break;
     }

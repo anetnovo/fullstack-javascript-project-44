@@ -7,7 +7,7 @@ export default function game() {
   const name = getName();
   printTask('Answer "yes" if given number is prime. Otherwise answer "no".');
   const primeCheck = (num) => {
-    if ((4**(num - 1)) % num) === 1) {
+    if (4**(num - 1) % num === 1) {
       return true;
     }
     return false;

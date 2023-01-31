@@ -19,9 +19,10 @@ export default function game() {
     printQuestion(`${randNum}  ${randNum2}`);
     const result = GCD(randNum2, randNum);
     const answer = readlineSync.question('Your answer: ');
-    if (Number(answer) === result) console.log('Correct!');
-    if (attempt === 3) congrats(name);
-    else if (Number(answer) !== result) {
+    const checkAnswer = Number(answer) === result;
+    if (checkAnswer) console.log('Correct!');
+    if (attempt === 3 && checkAnswer) congrats(name);
+    else if (!checkAnswer) {
       wrongAnswer(answer, result, name);
       break;
     }
