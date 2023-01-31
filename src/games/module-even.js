@@ -16,7 +16,7 @@ export default function game() {
     const num = randomNum();
     printQuestion(num);
     const answer = readlineSync.question('Your answer:');
-    let checkAnswer = (answer === 'yes' && isEven(num)) || (answer === 'no' && !isEven(num));
+    const checkAnswer = (answer === 'yes' && isEven(num)) || (answer === 'no' && !isEven(num));
     if (checkAnswer) {
       console.log('Correct!');
     }
