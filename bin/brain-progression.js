@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
-import { getName, randomNum, printTask, printQuestion, congrats, wrongAnswer } from '../src/index.js';
+import {
+  getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
+} from '../src/index.js';
 
 const name = getName();
 printTask('What number is missing in the progression?');
@@ -22,12 +24,12 @@ const makeProgression = () => {
   const result = prog[hide];
   prog[hide] = '..';
   const finishProgression = prog.toString().replace(/,/g, ' ');
-  return { finishProgression: finishProgression, correctAnswer: result };
+  return { finishProgression, result };
 };
 for (let attempt = 1; attempt <= 3; attempt += 1) {
-  const { finishProgression, correctAnswer } = makeProgression();
+  const { finishProgression, result } = makeProgression();
   printQuestion(finishProgression);
-  const result2 = correctAnswer;
+  const result2 = result;
   const answer = readlineSync.question('Your answer: ');
   if (Number(answer) === result2) console.log('Correct!');
   if (attempt === 3 && Number(answer) === result2) congrats(name);

@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
-import { getName, randomNum, printTask, printQuestion, congrats, wrongAnswer } from '../src/index.js';
+import {
+  getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
+} from '../src/index.js';
 
 const name = getName();
 printTask('What is the result of the expression?');
@@ -15,8 +17,8 @@ for (let attempt = 1; attempt <= 3; attempt += 1) {
   const randOper = arrayRandElement(operations);
   const randNum = randomNum();
   const randNum2 = randomNum();
-  printQuestion(`${randNum}  ${randOper}  ${randNum+randNum2}`);
-  const result = eval(`${randNum}  ${randOper}  ${randNum+randNum2}`);
+  printQuestion(`${randNum}  ${randOper}  ${randNum + randNum2}`);
+  const result = eval(`${randNum}  ${randOper}  ${randNum + randNum2}`);
   const answer = readlineSync.question('Your answer: ');
   if (Number(answer) === result) console.log('Correct!');
   if (attempt === 3) congrats(name);
