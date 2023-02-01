@@ -3,6 +3,10 @@ import {
   getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
 
+function arrayRandElement(array) {
+  const rand = Math.floor(Math.random() * array.length);
+  return array[rand];
+}
 const calculate = (num1, num2, sign) => {
   switch (sign) {
     case '*':
@@ -19,13 +23,7 @@ const calculate = (num1, num2, sign) => {
 export default function game() {
   const name = getName();
   printTask('What is the result of the expression?');
-
   const operations = ['+', '-', '*'];
-
-  function arrayRandElement(array) {
-    const rand = Math.floor(Math.random() * array.length);
-    return array[rand];
-  }
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     const randOper = arrayRandElement(operations);
     const randNum = randomNum();

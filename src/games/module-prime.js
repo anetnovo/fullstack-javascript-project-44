@@ -14,13 +14,15 @@ const primeCheck = (num) => {
   }
   return true;
 };
+
+const sayPrimeOrNot = (num) => {
+  const text = primeCheck(num) ? 'yes' : 'no';
+  return text;
+};
+
 export default function game() {
   const name = getName();
   printTask('Answer "yes" if given number is prime. Otherwise answer "no".');
-  const sayPrimeOrNot = (num) => {
-    const text = primeCheck(num) ? 'yes' : 'no';
-    return text;
-  };
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     const number = randomNum();
     printQuestion(number);
