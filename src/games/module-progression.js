@@ -29,7 +29,7 @@ export default function game() {
   };
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     const { finishProgression, result } = makeProgression();
-    printQuestion(finishProgression);
+    printQuestion(`${finishProgression}`);
     const correctAnswer = result;
     const answer = readlineSync.question('Your answer: ');
     if (Number(answer) === correctAnswer) console.log('Correct!');
