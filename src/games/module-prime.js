@@ -7,10 +7,16 @@ export default function game() {
   const name = getName();
   printTask('Answer "yes" if given number is prime. Otherwise answer "no".');
   const primeCheck = (num) => {
-    if ((4 ** (num - 1)) % num === 1) {
-      return true;
+    if (num < 2) {
+      return false;
     }
-    return false;
+
+    for (let i = 2; i <= Math.sqrt(num); i += 1) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
   };
   const sayPrimeOrNot = (num) => {
     const text = primeCheck(num) ? 'yes' : 'no';
