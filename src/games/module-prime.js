@@ -28,9 +28,8 @@ export default function game() {
     const answer = readlineSync.question('Your answer: ');
     if (answer === result) {
       console.log('Correct!');
-    if (attempt === 3) congrats(name);
     }
-   // if (attempt === 3 && answer === result) congrats(name);
+    if (attempt === 3 && answer === result) congrats(name);
     else if (answer !== result) {
       wrongAnswer(answer, result, name);
       break;
