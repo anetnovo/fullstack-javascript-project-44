@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
- getRandomNumInInterval, getName, printTask, printQuestion, congrats, wrongAnswer,
+  getRandomNumInInterval, getName, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
 
 const isEven = (num) => num % 2 === 0;

@@ -4,12 +4,10 @@ import {
 } from '../index.js';
 
 const GCD = (num1, num2) => {
-  let x = num1;
-  let y = num2;
-  while (x && y) x > y ? x %= y : y %= x;
-  x += y;
-  return x;
+  if (num2 === 0) return num1;
+  return GCD(num2, num1 % num2);
 };
+
 export default function game() {
   const name = getName();
   printTask('Find the greatest common divisor of given numbers.');
