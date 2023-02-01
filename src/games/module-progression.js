@@ -2,21 +2,9 @@ import readlineSync from 'readline-sync';
 import {
   getRandomNumInInterval, getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
-
-export default function game() {
-  const name = getName();
-  printTask('What number is missing in the progression?');
-  const getRandomIndex = () => {
-    const arr = [];
-    const rand = Math.floor(Math.random() * 10);
-    for (let i = 0; i < 10; i += 1) {
-      arr.push(Math.round(Math.random() * 10));
-    }
-    return arr[rand];
-  };
-  const makeProgression = () => {
+const makeProgression = () => {
     const start = randomNum();
-    const hide = getRandomIndex();
+    const hide = getRandomNumInInterval(0, 10);
     const step = getRandomNumInInterval(1, 15);
     const prog = [];
     for (let i = start; i <= 10 * step + start; i += step) {
@@ -27,6 +15,10 @@ export default function game() {
     const finishProgression = prog.toString().replace(/,/g, ' ');
     return { finishProgression, result };
   };
+
+export default function game() {
+  const name = getName();
+  printTask('What number is missing in the progression?');
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     const { finishProgression, result } = makeProgression();
     printQuestion(`${finishProgression}`);
