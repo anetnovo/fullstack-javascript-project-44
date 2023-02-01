@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
 import {
-  getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
+  getName, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
 
 const isEven = (num) => num % 2 === 0;
-
+const getRandomNumInInterval = (min, max) => Math.floor(Math.random() * (max - min) + min);
 export default function game() {
   const name = getName();
   printTask('Answer "yes" if the number is even, otherwise answer "no".');
@@ -13,9 +13,9 @@ export default function game() {
     true: 'yes',
   };
   for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const num = randomNum();
+    const num = getRandomNumInInterval(2, 50);
     printQuestion(num);
-    const answer = readlineSync.question('Your answer:');
+    const answer = readlineSync.question('Your answer: ');
     const checkAnswer = (answer === 'yes' && isEven(num)) || (answer === 'no' && !isEven(num));
     if (checkAnswer) {
       console.log('Correct!');
