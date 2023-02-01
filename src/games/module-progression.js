@@ -2,19 +2,20 @@ import readlineSync from 'readline-sync';
 import {
   getRandomNumInInterval, getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
+
 const makeProgression = () => {
-    const start = randomNum();
-    const hide = getRandomNumInInterval(0, 10);
-    const step = getRandomNumInInterval(1, 15);
-    const prog = [];
-    for (let i = start; i <= 10 * step + start; i += step) {
-      prog.push(i);
-    }
-    const result = prog[hide];
-    prog[hide] = '..';
-    const finishProgression = prog.toString().replace(/,/g, ' ');
-    return { finishProgression, result };
-  };
+  const start = randomNum();
+  const hide = getRandomNumInInterval(0, 10);
+  const step = getRandomNumInInterval(1, 15);
+  const prog = [];
+  for (let i = start; i <= 10 * step + start; i += step) {
+    prog.push(i);
+  }
+  const result = prog[hide];
+  prog[hide] = '..';
+  const finishProgression = prog.toString().replace(/,/g, ' ');
+  return { finishProgression, result };
+};
 
 export default function game() {
   const name = getName();
