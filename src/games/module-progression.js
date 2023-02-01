@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
+  getRandomNumInInterval, getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
 
 export default function game() {
@@ -17,7 +17,7 @@ export default function game() {
   const makeProgression = () => {
     const start = randomNum();
     const hide = getRandomIndex();
-    const step = randomNum();
+    const step = getRandomNumInInterval(1, 15);
     const prog = [];
     for (let i = start; i <= 10 * step + start; i += step) {
       prog.push(i);

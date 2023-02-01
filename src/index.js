@@ -6,7 +6,7 @@ export const getName = () => {
   console.log(`Hello, ${name}!`);
   return name;
 };
-
+export const getRandomNumInInterval = (min, max) => Math.floor(Math.random() * (max - min) + min);
 export const randomNum = () => {
   const arr = [];
   const rand = Math.floor(Math.random() * 10);

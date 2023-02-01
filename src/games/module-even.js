@@ -1,10 +1,9 @@
 import readlineSync from 'readline-sync';
 import {
-  getName, printTask, printQuestion, congrats, wrongAnswer,
+ getRandomNumInInterval, getName, printTask, printQuestion, congrats, wrongAnswer,
 } from '../index.js';
 
 const isEven = (num) => num % 2 === 0;
-const getRandomNumInInterval = (min, max) => Math.floor(Math.random() * (max - min) + min);
 export default function game() {
   const name = getName();
   printTask('Answer "yes" if the number is even, otherwise answer "no".');
