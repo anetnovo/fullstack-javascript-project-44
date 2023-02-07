@@ -13,9 +13,8 @@ Games:
 <li>Finding the Greatest Common Divisor.</li>
 <li>Definition of a prime number.</li>
 </ol>
-### asciinemas 
-<br>
-demonstration of gameplay with successful and unsuccessful endings of the game
+### Demonstration of gameplay with successful and unsuccessful endings of the game:
+
 <br> asciinema brain-even:
 <a href="https://asciinema.org/a/RFZUllVfZhBIzwDzdawGerPTn" target="_blank"><img src="https://asciinema.org/a/RFZUllVfZhBIzwDzdawGerPTn.svg" /></a>
 <br> asciinema brain-calc:
