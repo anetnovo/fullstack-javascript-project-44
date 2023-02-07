@@ -4,7 +4,7 @@
 <a href="https://codeclimate.com/github/anetnovo/fullstack-javascript-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/6239acdc5de31779de0f/maintainability" /></a>
 ### Installation and launch instructions
 1. Install latest version of Node.js
-2. Clone the project repository https://github.com/anetnovo/fullstack-javascript-project-44
+2. Clone the project repository https://github.com/anetnovo/fullstack-javascript-project-44.git
 3. Make install
 4. specify the target to be launched $ make [goal name]. For example:
   <br> make brain-even
