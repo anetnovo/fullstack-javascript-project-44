@@ -6,6 +6,10 @@
 1. Install latest version of Node.js
 2. Clone the project repository https://github.com/anetnovo/fullstack-javascript-project-44
 3. Make install
+4. specify the target to be launched $ make <goal name>. For example:
+  <br> make brain-even
+  <br>make brain-progression
+  <br> ..
 ### Description:
 
 Brain Games is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again. 
