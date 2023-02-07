@@ -6,7 +6,7 @@
 1. Install latest version of Node.js
 2. Clone the project repository https://github.com/anetnovo/fullstack-javascript-project-44
 3. Make install
-4. specify the target to be launched $ make <goal name>. For example:
+4. specify the target to be launched $ make [goal name]. For example:
   <br> make brain-even
   <br>make brain-progression
   <br> ..
