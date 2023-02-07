@@ -4,7 +4,8 @@
 <a href="https://codeclimate.com/github/anetnovo/fullstack-javascript-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/6239acdc5de31779de0f/maintainability" /></a>
 ### Description:
 
-Brain Games is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again. Games:
+Brain Games is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again. 
+Games:
 <ol>
 <li>Calculator. Arithmetic expressions to be evaluated.</li>
 <li>Progression. Search for missing numbers in a sequence of numbers.</li>
@@ -13,6 +14,7 @@ Brain Games is a set of five console games based on popular mobile brain trainin
 <li>Definition of a prime number.</li>
 </ol>
 ### asciinemas 
+<br>
 demonstration of gameplay with successful and unsuccessful endings of the game
 <br> asciinema brain-even:
 <a href="https://asciinema.org/a/RFZUllVfZhBIzwDzdawGerPTn" target="_blank"><img src="https://asciinema.org/a/RFZUllVfZhBIzwDzdawGerPTn.svg" /></a>
