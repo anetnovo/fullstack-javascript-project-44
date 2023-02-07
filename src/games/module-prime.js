@@ -1,7 +1,5 @@
-import readlineSync from 'readline-sync';
-import {
-  getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
-} from '../index.js';
+import runEngine from '../index.js';
+import getRandomNumInInterval from '../utils.js';
 
 const primeCheck = (num) => {
   if (num < 2) {
@@ -20,21 +18,13 @@ const sayPrimeOrNot = (num) => {
   return text;
 };
 
-export default function game() {
-  const name = getName();
-  printTask('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const number = randomNum();
-    printQuestion(number);
-    const result = sayPrimeOrNot(number);
-    const answer = readlineSync.question('Your answer: ');
-    if (answer === result) {
-      console.log('Correct!');
-    }
-    if (attempt === 3 && answer === result) congrats(name);
-    else if (answer !== result) {
-      wrongAnswer(answer, result, name);
-      break;
-    }
-  }
+const makeRound = () => {
+  const number = getRandomNumInInterval(2, 60);
+  const question = number;
+  const answer = sayPrimeOrNot(number);
+  return [question, answer];
+};
+export default function runPrimeGame() {
+  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  runEngine(rules, makeRound);
 }

@@ -1,28 +1,19 @@
-import readlineSync from 'readline-sync';
-import {
-  getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
-} from '../index.js';
+import getRandomNumInInterval from '../utils.js';
+import runEngine from '../index.js';
 
 const GCD = (num1, num2) => {
   if (num2 === 0) return num1;
   return GCD(num2, num1 % num2);
 };
+const makeRound = () => {
+  const randNum = getRandomNumInInterval(1, 90);
+  const randNum2 = getRandomNumInInterval(1, 120);
+  const question = `${randNum} ${randNum2}`;
+  const answer = String(GCD(randNum2, randNum));
+  return [question, answer];
+};
 
-export default function game() {
-  const name = getName();
-  printTask('Find the greatest common divisor of given numbers.');
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const randNum = randomNum();
-    const randNum2 = randomNum();
-    printQuestion(`${randNum} ${randNum2}`);
-    const result = GCD(randNum2, randNum);
-    const answer = readlineSync.question('Your answer: ');
-    const checkAnswer = Number(answer) === result;
-    if (checkAnswer) console.log('Correct!');
-    if (attempt === 3 && checkAnswer) congrats(name);
-    else if (!checkAnswer) {
-      wrongAnswer(answer, result, name);
-      break;
-    }
-  }
+export default function runGCDgame() {
+  const rules = 'Find the greatest common divisor of given numbers.';
+  runEngine(rules, makeRound);
 }

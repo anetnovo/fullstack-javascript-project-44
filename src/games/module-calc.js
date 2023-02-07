@@ -1,7 +1,5 @@
-import readlineSync from 'readline-sync';
-import {
-  getName, randomNum, printTask, printQuestion, congrats, wrongAnswer,
-} from '../index.js';
+import runEngine from '../index.js';
+import getRandomNumInInterval from '../utils.js';
 
 function arrayRandElement(array) {
   const rand = Math.floor(Math.random() * array.length);
@@ -20,23 +18,17 @@ const calculate = (num1, num2, sign) => {
   }
   return sign;
 };
-export default function game() {
-  const name = getName();
-  printTask('What is the result of the expression?');
+const makeRound = () => {
   const operations = ['+', '-', '*'];
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const randOper = arrayRandElement(operations);
-    const randNum = randomNum();
-    const randNum2 = randomNum();
-    printQuestion(`${randNum} ${randOper} ${randNum2}`);
-    const result = calculate(randNum, randNum2, randOper);
-    const answer = readlineSync.question('Your answer: ');
-    const checkAnswer = Number(answer) === result;
-    if (checkAnswer) console.log('Correct!');
-    if (attempt === 3 && checkAnswer) congrats(name);
-    else if (!checkAnswer) {
-      wrongAnswer(answer, result, name);
-      break;
-    }
-  }
+  const randOper = arrayRandElement(operations);
+  const randNum = getRandomNumInInterval(2, 50);
+  const randNum2 = getRandomNumInInterval(0, 10);
+  const question = `${randNum} ${randOper} ${randNum2}`;
+  const answer = String(calculate(randNum, randNum2, randOper));
+  return [question, answer];
+};
+
+export default function runCalcGame() {
+  const rules = 'What is the result of the expression?';
+  runEngine(rules, makeRound);
 }
