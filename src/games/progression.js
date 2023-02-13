@@ -20,7 +20,8 @@ const makeRound = () => {
   const answer = String(result);
   return [question, answer];
 };
-export default function runProgressionGame() {
+const runProgressionGame = () => {
   const rules = 'What number is missing in the progression?';
   runEngine(rules, makeRound);
-}
+};
+export default runProgressionGame;

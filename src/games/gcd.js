@@ -12,8 +12,8 @@ const makeRound = () => {
   const answer = String(GCD(randNum2, randNum));
   return [question, answer];
 };
-
-export default function runGCDgame() {
+const runGCDgame = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
   runEngine(rules, makeRound);
-}
+};
+export default runGCDgame;
