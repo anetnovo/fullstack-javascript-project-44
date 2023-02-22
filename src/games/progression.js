@@ -1,22 +1,23 @@
 import runEngine from '../index.js';
 import getRandomNumInInterval from '../utils.js';
 
-const makeProgression = () => {
-  const start = getRandomNumInInterval(0, 20);
-  const hide = getRandomNumInInterval(0, 10);
-  const step = getRandomNumInInterval(1, 15);
+const makeProgression = (begin, step, length) => {
   const prog = [];
-  for (let i = start; i <= 10 * step + start; i += step) {
+  for (let i = begin; i <= length * step + begin; i += step) {
     prog.push(i);
   }
-  const result = prog[hide];
-  prog[hide] = '..';
-  const finishProgression = prog.toString().replace(/,/g, ' ');
-  return { finishProgression, result };
+  return prog;
 };
 const makeRound = () => {
-  const { finishProgression, result } = makeProgression();
-  const question = `${finishProgression}`;
+  const start = getRandomNumInInterval(0, 20);
+  const act = getRandomNumInInterval(1, 15);
+  const size = getRandomNumInInterval(5, 10);
+  const hide = getRandomNumInInterval(0, size);
+  const progression = makeProgression(start, act, size);
+  const result = progression[hide];
+  progression[hide] = '..';
+  const preparedProgression = progression.join(' ');
+  const question = `${preparedProgression}`;
   const answer = String(result);
   return [question, answer];
 };

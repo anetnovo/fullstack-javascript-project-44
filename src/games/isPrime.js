@@ -12,7 +12,6 @@ const isPrime = (num) => {
   }
   return true;
 };
-
 const makeRound = () => {
   const number = getRandomNumInInterval(2, 60);
   const question = number;

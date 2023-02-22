@@ -25,7 +25,6 @@ const makeRound = () => {
   const answer = String(calculate(randNum, randNum2, randOper));
   return [question, answer];
 };
-
 const runCalcGame = () => {
   const rules = 'What is the result of the expression?';
   runEngine(rules, makeRound);
