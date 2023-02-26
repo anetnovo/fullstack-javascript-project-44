@@ -8,21 +8,24 @@ const makeProgression = (begin, step, length) => {
   }
   return prog;
 };
+
 const makeRound = () => {
   const start = getRandomNumInInterval(0, 20);
   const act = getRandomNumInInterval(1, 15);
   const size = getRandomNumInInterval(5, 10);
-  const hide = getRandomNumInInterval(0, size);
+  const hiddenIndex = getRandomNumInInterval(0, size);
   const progression = makeProgression(start, act, size);
-  const result = progression[hide];
-  progression[hide] = '..';
+  const result = progression[hiddenIndex];
+  progression[hiddenIndex] = '..';
   const preparedProgression = progression.join(' ');
   const question = `${preparedProgression}`;
   const answer = String(result);
   return [question, answer];
 };
+
 const runProgressionGame = () => {
   const rules = 'What number is missing in the progression?';
   runEngine(rules, makeRound);
 };
+
 export default runProgressionGame;

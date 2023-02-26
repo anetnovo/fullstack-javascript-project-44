@@ -12,14 +12,17 @@ const isPrime = (num) => {
   }
   return true;
 };
+
 const makeRound = () => {
-  const number = getRandomNumInInterval(2, 60);
-  const question = number;
-  const answer = isPrime(number) ? 'yes' : 'no';
+  const randomNum = getRandomNumInInterval(2, 60);
+  const question = randomNum;
+  const answer = isPrime(randomNum) ? 'yes' : 'no';
   return [question, answer];
 };
+
 const runPrimeGame = () => {
   const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   runEngine(rules, makeRound);
 };
+
 export default runPrimeGame;
